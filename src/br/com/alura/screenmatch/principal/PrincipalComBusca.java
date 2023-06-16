@@ -11,10 +11,15 @@ public class PrincipalComBusca {
     public static void main(String[] args) throws IOException, InterruptedException {
         Scanner leitura = new Scanner(System.in);
         System.out.println("Informe a sua chave para a 'OMDb API': ");
-        String chaveApi = leitura.nextLine();
+        var chaveApi = leitura.nextLine();
+        System.out.println("Digite o nome de um filme para busca: ");
+        var busca = leitura.nextLine();
+
+        String endereco = "https://www.omdbapi.com/?t=" + busca + "&apikey=" + chaveApi;
+
         HttpClient client = HttpClient.newHttpClient();
         HttpRequest request = HttpRequest.newBuilder()
-                .uri(URI.create("https://www.omdbapi.com/?t=matrix&apikey=" + chaveApi))
+                .uri(URI.create(endereco))
                 .build();
 
         HttpResponse<String> response = client
