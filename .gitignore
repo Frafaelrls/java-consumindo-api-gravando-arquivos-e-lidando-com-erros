@@ -57,4 +57,7 @@ bin/
 hs_err_pid*
 replay_pid*
 
+# Dependencies
+/lib
+
 # End of https://www.toptal.com/developers/gitignore/api/java
